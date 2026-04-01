@@ -1,0 +1,33 @@
+:root {
+  --bg: #f7f5f2;
+  --text: #1f1f1f;
+  --accent: #111111;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  gap: 12px;
+  text-align: center;
+  padding: 24px;
+}
+
+#cta-btn {
+  border: none;
+  background: var(--accent);
+  color: #ffffff;
+  padding: 10px 16px;
+  cursor: pointer;
+}
