@@ -93,8 +93,15 @@ function initFormValidation() {
           showMessage(formMessage, outcome.message, 'error');
           return;
         }
+
         form.classList.remove('was-validated');
         form.reset();
+        showMessage(formMessage, 'Registration successful. Redirecting to login...', 'success');
+
+        window.setTimeout(() => {
+          window.location.href = 'login.html';
+        }, 700);
+        return;
       }
 
       if (mode === 'login') {
@@ -103,6 +110,12 @@ function initFormValidation() {
           showMessage(formMessage, outcome.message, 'error');
           return;
         }
+
+        showMessage(formMessage, 'Login successful. Redirecting to profile...', 'success');
+        window.setTimeout(() => {
+          window.location.href = 'profile.html';
+        }, 700);
+        return;
       }
 
       if (mode === 'contact') {
@@ -111,20 +124,10 @@ function initFormValidation() {
           showMessage(formMessage, outcome.message, 'error');
           return;
         }
+
         form.classList.remove('was-validated');
         form.reset();
-      }
-
-      form.classList.add('was-validated');
-      const successText = mode === 'login'
-        ? 'Login successful. Redirecting to profile...'
-        : (outcomeMessageForMode(mode) || form.dataset.successMessage || 'Form submitted successfully.');
-      showMessage(formMessage, successText, 'success');
-
-      if (mode === 'login') {
-        window.setTimeout(() => {
-          window.location.href = 'profile.html';
-        }, 700);
+        showMessage(formMessage, outcomeMessageForMode(mode) || form.dataset.successMessage || 'Form submitted successfully.', 'success');
       }
     });
 
