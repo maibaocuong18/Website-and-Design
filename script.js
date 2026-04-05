@@ -228,6 +228,8 @@ function initPasswordToggles() {
   const toggleButtons = document.querySelectorAll('[data-password-toggle]');
 
   toggleButtons.forEach((button) => {
+    syncPasswordToggleState(button);
+
     button.addEventListener('click', () => {
       const targetId = button.dataset.target;
       if (!targetId) {
@@ -241,11 +243,21 @@ function initPasswordToggles() {
 
       const isHidden = input.type === 'password';
       input.type = isHidden ? 'text' : 'password';
-      button.classList.toggle('is-visible', isHidden);
-      button.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
-      button.setAttribute('title', isHidden ? 'Hide password' : 'Show password');
+      syncPasswordToggleState(button, input);
     });
   });
+}
+
+function syncPasswordToggleState(button, input) {
+  const resolvedInput = input || document.getElementById(button.dataset.target || '');
+  if (!resolvedInput) {
+    return;
+  }
+
+  const isPasswordHidden = resolvedInput.type === 'password';
+  button.classList.toggle('is-visible', !isPasswordHidden);
+  button.setAttribute('aria-label', isPasswordHidden ? 'Show password' : 'Hide password');
+  button.setAttribute('title', isPasswordHidden ? 'Show password' : 'Hide password');
 }
 
 function initAddToCartButtons() {

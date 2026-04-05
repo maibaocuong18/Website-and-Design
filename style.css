@@ -197,12 +197,12 @@ h5 {
   width: 1.4rem;
   height: 2px;
   background: currentColor;
-  transform: rotate(-38deg) scaleX(0);
+  transform: rotate(-38deg) scaleX(1);
   transition: transform 0.2s ease;
 }
 
 .password-toggle.is-visible::after {
-  transform: rotate(-38deg) scaleX(1);
+  transform: rotate(-38deg) scaleX(0);
 }
 
 .password-toggle:hover,
