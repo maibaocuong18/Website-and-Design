@@ -70,6 +70,15 @@ h5 {
   width: 100%;
 }
 
+.nav-link-muted {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.nav-link-muted::after {
+  width: 0 !important;
+}
+
 .hero-section {
   min-height: 82vh;
   display: grid;
@@ -149,6 +158,61 @@ h5 {
 .slide-up.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field .form-control {
+  padding-right: 3.25rem;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 0.8rem;
+  transform: translateY(-50%);
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--graphite);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.password-toggle svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+}
+
+.password-toggle::after {
+  content: '';
+  position: absolute;
+  width: 1.4rem;
+  height: 2px;
+  background: currentColor;
+  transform: rotate(-38deg) scaleX(0);
+  transition: transform 0.2s ease;
+}
+
+.password-toggle.is-visible::after {
+  transform: rotate(-38deg) scaleX(1);
+}
+
+.password-toggle:hover,
+.password-toggle:focus-visible {
+  color: var(--black);
+}
+
+.password-toggle:focus-visible {
+  outline: 2px solid var(--black);
+  outline-offset: 2px;
 }
 
 .message-box {

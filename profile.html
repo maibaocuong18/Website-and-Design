@@ -33,36 +33,54 @@
     </nav>
 
     <main class="container py-5">
-      <div class="row g-4">
+      <div class="row justify-content-center" data-profile-guest>
+        <div class="col-lg-8 slide-up visible">
+          <div class="soft-card p-4 p-lg-5 text-center">
+            <p class="text-uppercase small text-muted mb-2">Profile</p>
+            <h1 class="mb-3">Please Login First</h1>
+            <p class="text-muted mb-4">Sign in to view your profile details, saved information, and recent orders.</p>
+            <a class="btn btn-noir px-4" href="login.html">Go to Login</a>
+          </div>
+        </div>
+      </div>
+      <div class="row g-4" data-profile-shell hidden>
         <div class="col-lg-4 slide-up">
           <div class="soft-card p-4 text-center h-100">
             <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&auto=format&fit=crop" alt="Profile avatar" class="rounded-circle mb-3" style="width: 140px; height: 140px; object-fit: cover;" />
-            <h3 class="h4 mb-1" data-profile-name>Mai Bảo Cường</h3>
+            <h3 class="h4 mb-1" data-profile-name>Noir Member</h3>
             <p class="text-muted mb-4">Premium Member</p>
-            <button class="btn btn-outline-noir w-100">Edit Profile</button>
+            <button class="btn btn-outline-noir w-100" type="button" data-edit-toggle>Edit Profile</button>
           </div>
         </div>
         <div class="col-lg-8 slide-up">
           <div class="soft-card p-4 p-lg-5 mb-4">
             <h2 class="h4 mb-4">Account Details</h2>
-            <div class="row g-3">
-              <div class="col-md-6">
-                <label class="form-label">Full Name</label>
-                <input class="form-control rounded-0" value="Mai Bảo Cường" readonly />
+            <p class="text-muted small mb-3" data-profile-note hidden>Please complete your profile: fill in name, phone, and address.</p>
+            <form data-profile-form>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="profileFullName">Full Name</label>
+                  <input id="profileFullName" class="form-control rounded-0" data-profile-fullname placeholder="Enter your full name" readonly required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="profileEmail">Email</label>
+                  <input id="profileEmail" class="form-control rounded-0" data-profile-email placeholder="you@example.com" readonly />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="profilePhone">Phone</label>
+                  <input id="profilePhone" class="form-control rounded-0" data-profile-phone placeholder="Enter your phone number" readonly required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="profileAddress">Address</label>
+                  <input id="profileAddress" class="form-control rounded-0" data-profile-address placeholder="Enter your address" readonly required />
+                </div>
               </div>
-              <div class="col-md-6">
-                <label class="form-label">Email</label>
-                <input class="form-control rounded-0" data-profile-email value="mai.baocuong@gmail.com" readonly />
+              <div class="message-box" data-profile-message></div>
+              <div class="d-flex gap-2 mt-4">
+                <button class="btn btn-outline-noir" type="button" data-edit-toggle>Edit Profile</button>
+                <button class="btn btn-noir" type="submit" data-profile-save hidden>Save Profile</button>
               </div>
-              <div class="col-md-6">
-                <label class="form-label">Phone</label>
-                <input class="form-control rounded-0" value="+84 912 345 678" readonly />
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Address</label>
-                <input class="form-control rounded-0" value="Quận 1, TP. Hồ Chí Minh, Việt Nam" readonly />
-              </div>
-            </div>
+            </form>
           </div>
           <div class="soft-card p-4 p-lg-5">
             <h2 class="h4 mb-3">Recent Orders</h2>
